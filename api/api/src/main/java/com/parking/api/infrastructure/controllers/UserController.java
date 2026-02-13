@@ -17,6 +17,12 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping("/saludar")
+    public ResponseEntity<String> saludar() {
+        return ResponseEntity.ok("Hola");
+    }
+
+
     @GetMapping
     public ResponseEntity<Flux<User>> findAll() {
         return ResponseEntity.ok(userService.getUsers());
