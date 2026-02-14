@@ -19,7 +19,7 @@ public class UserController {
 
     @GetMapping("/saludar")
     public ResponseEntity<String> saludar() {
-        return ResponseEntity.ok("Hola 2");
+        return ResponseEntity.ok("Hola 22");
     }
 
 
