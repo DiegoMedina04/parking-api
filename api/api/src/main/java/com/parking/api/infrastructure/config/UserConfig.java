@@ -1,9 +1,8 @@
 package com.parking.api.infrastructure.config;
 
 import com.parking.api.application.services.UserService;
-import com.parking.api.application.usesCases.CreateUserUseCaseImpl;
-import com.parking.api.application.usesCases.RetrieveUserUseCaseImpl;
-import com.parking.api.domain.models.User;
+import com.parking.api.application.usesCases.user.CreateUserUseCaseImpl;
+import com.parking.api.application.usesCases.user.RetrieveUserUseCaseImpl;
 import com.parking.api.domain.ports.in.user.CreateUserUseCase;
 import com.parking.api.domain.ports.in.user.RetrieveUserUseCase;
 import com.parking.api.domain.ports.out.UserRepositoryPort;

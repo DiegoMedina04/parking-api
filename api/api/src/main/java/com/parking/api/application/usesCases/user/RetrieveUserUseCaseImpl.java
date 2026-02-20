@@ -1,4 +1,4 @@
-package com.parking.api.application.usesCases;
+package com.parking.api.application.usesCases.user;
 
 import com.parking.api.domain.models.User;
 import com.parking.api.domain.ports.in.user.RetrieveUserUseCase;
