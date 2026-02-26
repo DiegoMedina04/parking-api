@@ -7,14 +7,16 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Parking {
+public class Role {
+
     private String id;
+
     private String name;
-    private String address;
-    private List<Subscription> subscription;
-    private User user;
+
+    private List<User> users;
+
 }

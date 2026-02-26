@@ -23,7 +23,7 @@ public class JpaUserRepositoryAdapter implements UserRepositoryPort {
         return  Mono.fromCallable(jpaUserRepository::findAll)
                 .subscribeOn(Schedulers.boundedElastic())
                 .flatMapMany(Flux::fromIterable)
-                .map(UserEntity::fromDomainModel);
+                .map(UserEntity::toDomainModel);
         //.flatMapMany(users -> Flux.fromIterable(users))
         //flatMapMany -> Mono<List<User>>  →  Flux<User>
 
@@ -38,10 +38,10 @@ public class JpaUserRepositoryAdapter implements UserRepositoryPort {
 
     @Override
     public Mono<User> save(User user) {
-        UserEntity userEntity = UserEntity.toDomainModel(user);
+        UserEntity userEntity = UserEntity.fromDomainModel(user);
         return Mono.fromCallable(()-> jpaUserRepository.save(userEntity))
                 .subscribeOn(Schedulers.boundedElastic())
-                .map(UserEntity::fromDomainModel);
+                .map(UserEntity::toDomainModel);
     }
 
     @Override

@@ -30,12 +30,18 @@ public class ParkingEntity {
     @OneToMany(mappedBy = "parking", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SubscriptionEntity> subscription;
 
+    @ManyToOne
+    private UserEntity user;
+
     public static ParkingEntity fromDomainModel(Parking parkingLot) {
+        UserEntity userEntity = new UserEntity();
+        userEntity.setId(parkingLot.getUser().getId());
         return new ParkingEntity(
                 parkingLot.getId(),
                 parkingLot.getName(),
                 parkingLot.getAddress(),
-                null
+                null,
+                userEntity
         );
     }
 
@@ -44,7 +50,8 @@ public class ParkingEntity {
                 id,
                 name,
                 address,
-                null
+                null,
+                user ==null ? null: user.toDomainModel()
         );
     }
 }
